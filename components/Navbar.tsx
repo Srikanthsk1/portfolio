@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="text-xl font-black fira-code tracking-tight flex items-center 
-          transition-all duration-300 hover:scale-[1.04]"
+          transition-all duration-300 hover:scale-[0.04]"
         >
           <span className="text-slate-100">&lt;/. </span>
           <span className="text-cyan-400">S</span>
