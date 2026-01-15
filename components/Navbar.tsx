@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 35);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -30,58 +30,62 @@ const Navbar: React.FC = () => {
       navigate('/');
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      }, 150);
+      }, 120);
     }
     setMobileMenuOpen(false);
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 
-      ${scrolled ? 'py-4 glass' : 'py-7 bg-transparent'}`}
+      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500
+      ${scrolled ? 'py-4 glass' : 'py-6 bg-transparent'}`}
     >
       <div className="container mx-auto px-8 flex justify-between items-center">
 
-        {/* LOGO */}
+        {/* LOGO (SMALLER) */}
         <Link
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-3xl font-black fira-code tracking-tight group flex items-center transition-all duration-500 hover:scale-105"
+          className="text-xl font-black fira-code tracking-tight flex items-center 
+          transition-all duration-300 hover:scale-[1.04]"
         >
-          <span className="text-slate-100 group-hover:text-cyan-400">&lt;/. </span>
-          <span className="text-cyan-400 group-hover:text-white">S</span>
-          <span className="text-slate-100 group-hover:text-cyan-400">R</span>
-          <span className="text-cyan-400 group-hover:text-white">I</span>
-          <span className="text-slate-100 group-hover:text-cyan-400">K</span>
-          <span className="text-cyan-400 group-hover:text-white">A</span>
-          <span className="text-slate-100 group-hover:text-cyan-400">N</span>
-          <span className="text-cyan-400 group-hover:text-white">T</span>
-          <span className="text-slate-100 group-hover:text-cyan-400">H</span>
-          <span className="ml-1 text-cyan-400">.</span>
-          <span className="text-slate-100 group-hover:text-cyan-400">/&gt;</span>
+          <span className="text-slate-100">&lt;/. </span>
+          <span className="text-cyan-400">S</span>
+          <span className="text-slate-100">R</span>
+          <span className="text-cyan-400">I</span>
+          <span className="text-slate-100">K</span>
+          <span className="text-cyan-400">A</span>
+          <span className="text-slate-100">N</span>
+          <span className="text-cyan-400">T</span>
+          <span className="text-slate-100">H</span>
+          <span className="ml-0.5 text-cyan-400">.</span>
+          <span className="text-slate-100">/&gt;</span>
         </Link>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden lg:flex items-center space-x-12">
+        {/* DESKTOP NAV ITEMS (BIGGER) */}
+        <div className="hidden lg:flex items-center space-x-14">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className="nav-link relative text-sm font-bold text-slate-400 
-              hover:text-cyan-400 uppercase tracking-[0.3em] fira-code transition-colors"
+              className="nav-link relative text-base font-bold 
+              text-slate-300 hover:text-cyan-400 transition-colors
+              uppercase tracking-[0.22em] fira-code"
             >
               {item.name}
             </a>
           ))}
 
+          {/* RESUME BUTTON (MATCH SIZE) */}
           <a
             href="https://drive.google.com/file/d/1pIaUuRzxHJXpA0ySKr_BL3tLnmU_vMGE/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3 bg-cyan-500/10 hover:bg-cyan-500 
-            text-cyan-400 hover:text-slate-950 border border-cyan-500/30 
-            rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300"
+            className="px-7 py-3 bg-cyan-500/10 hover:bg-cyan-500
+            text-base font-bold uppercase tracking-widest
+            text-cyan-400 hover:text-slate-950
+            border border-cyan-500/30 rounded-xl transition-all duration-300"
           >
             Resume
           </a>
@@ -92,7 +96,7 @@ const Navbar: React.FC = () => {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="lg:hidden p-3 text-slate-100"
         >
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -109,7 +113,7 @@ const Navbar: React.FC = () => {
 
       {/* MOBILE MENU */}
       <div
-        className={`lg:hidden fixed inset-0 transition-all duration-500 
+        className={`lg:hidden fixed inset-0 transition-all duration-500
         ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
       >
         <div
@@ -118,7 +122,7 @@ const Navbar: React.FC = () => {
         />
 
         <div
-          className={`absolute right-0 top-0 h-full w-[85%] glass p-12 
+          className={`absolute right-0 top-0 h-full w-[85%] glass p-12
           flex flex-col justify-center gap-10 transition-transform duration-500
           ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
