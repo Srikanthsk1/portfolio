@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
         <Link
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center fira-code text-base font-black tracking-tight"
+          className="flex items-center fira-code text-3xl font-black tracking-tight"  // Increased font size here
         >
           <span className="text-slate-100">&lt;/. </span>
           <span className="text-cyan-400">S</span>
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className="text-base font-semibold uppercase tracking-widest
+              className="text-lg font-semibold uppercase tracking-widest
               text-slate-300 hover:text-cyan-400 transition-colors fira-code"
             >
               {item.name}
@@ -80,8 +80,8 @@ const Navbar: React.FC = () => {
             href="https://drive.google.com/file/d/1pIaUuRzxHJXpA0ySKr_BL3tLnmU_vMGE/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-10 px-6 flex items-center justify-center
-            text-base font-semibold uppercase tracking-widest
+            className="h-12 px-8 flex items-center justify-center
+            text-lg font-semibold uppercase tracking-widest
             text-cyan-400 border border-cyan-500/40 rounded-lg
             hover:bg-cyan-500 hover:text-slate-950 transition-all"
           >
