@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 35);
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -37,17 +37,16 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500
-      ${scrolled ? 'py-4 glass' : 'py-6 bg-transparent'}`}
+      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300
+      ${scrolled ? 'bg-slate-950/70 backdrop-blur-xl' : 'bg-transparent'}`}
     >
-      <div className="container mx-auto px-8 flex justify-between items-center">
+      <div className="container mx-auto px-8 h-16 flex items-center justify-between">
 
-        {/* LOGO (SMALLER) */}
+        {/* LOGO (SLIGHTLY SMALLER & CENTERED) */}
         <Link
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-xl font-black fira-code tracking-tight flex items-center 
-          transition-all duration-300 hover:scale-[0.90]"
+          className="flex items-center fira-code text-sm font-black tracking-tight"
         >
           <span className="text-slate-100">&lt;/. </span>
           <span className="text-cyan-400">S</span>
@@ -58,34 +57,34 @@ const Navbar: React.FC = () => {
           <span className="text-slate-100">N</span>
           <span className="text-cyan-400">T</span>
           <span className="text-slate-100">H</span>
-          <span className="ml-0.5 text-cyan-400">.</span>
+          <span className="text-cyan-400">.</span>
           <span className="text-slate-100">/&gt;</span>
         </Link>
 
-        {/* DESKTOP NAV ITEMS (BIGGER) */}
-        <div className="hidden lg:flex items-center space-x-14">
-          {navItems.map((item) => (
+        {/* DESKTOP MENU */}
+        <div className="hidden lg:flex items-center gap-10">
+
+          {navItems.map(item => (
             <a
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className="nav-link relative text-base font-bold 
-              text-slate-300 hover:text-cyan-400 transition-colors
-              uppercase tracking-[0.22em] fira-code"
+              className="text-sm font-semibold uppercase tracking-widest
+              text-slate-300 hover:text-cyan-400 transition-colors fira-code"
             >
               {item.name}
             </a>
           ))}
 
-          {/* RESUME BUTTON (MATCH SIZE) */}
+          {/* RESUME BUTTON (SAME HEIGHT AS TEXT) */}
           <a
             href="https://drive.google.com/file/d/1pIaUuRzxHJXpA0ySKr_BL3tLnmU_vMGE/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-7 py-3 bg-cyan-500/10 hover:bg-cyan-500
-            text-base font-bold uppercase tracking-widest
-            text-cyan-400 hover:text-slate-950
-            border border-cyan-500/30 rounded-xl transition-all duration-300"
+            className="h-10 px-6 flex items-center justify-center
+            text-sm font-semibold uppercase tracking-widest
+            text-cyan-400 border border-cyan-500/40 rounded-lg
+            hover:bg-cyan-500 hover:text-slate-950 transition-all"
           >
             Resume
           </a>
@@ -94,13 +93,13 @@ const Navbar: React.FC = () => {
         {/* MOBILE BUTTON */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-3 text-slate-100"
+          className="lg:hidden text-slate-100"
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2.5"
+              strokeWidth="2"
               d={
                 mobileMenuOpen
                   ? "M6 18L18 6M6 6l12 12"
