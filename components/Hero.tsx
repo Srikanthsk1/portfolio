@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
               
               <div className="relative w-[240px] h-[340px] sm:w-[280px] sm:h-[380px] lg:w-[320px] lg:h-[440px] rounded-[32px] overflow-hidden glass border-2 border-white/5 transition-all duration-700 hover:border-cyan-500/30 shadow-2xl">
                 <img 
-                  src="assets\bannerImg.png" 
+                  src="src/assets/bannerImg.png"
                   alt="Alex Portrait" 
                   className="w-full h-full object-cover brightness-[1.02] group-hover:scale-105 transition-all duration-1000 grayscale-[20%] group-hover:grayscale-0"
                   onError={(e) => {
