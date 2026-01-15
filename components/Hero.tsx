@@ -11,10 +11,10 @@ const Hero: React.FC = () => {
         className="absolute top-[10%] right-[26%] w-[300px] h-[300px] bg-cyan-600/20 rounded-full blur-[90px] pointer-events-none"
         style={{ zIndex: 0 }}
       /> */}
-      <div
+      {/* <div
         className="absolute top-[45%] right-[18%] w-[200px] h-[200px] bg-indigo-600/20 rounded-full blur-[80px] pointer-events-none"
         style={{ zIndex: 0 }}
-      />
+      /> */}
 
       <div className="container mx-auto px-8 lg:px-16 relative z-10">
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
