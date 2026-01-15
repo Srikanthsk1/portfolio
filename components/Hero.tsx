@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
                   alt="Alex Portrait" 
                   className="w-full h-full object-cover brightness-[1.02] group-hover:scale-105 transition-all duration-1000 grayscale-[20%] group-hover:grayscale-0"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop";
+                    (e.target as HTMLImageElement).src = "src/assets/bannerImg.png";
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
