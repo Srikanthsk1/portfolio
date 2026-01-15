@@ -103,8 +103,8 @@ const Hero: React.FC = () => {
 
           {/* Right Image Section */}
           <div className="order-1 lg:order-2 flex justify-center items-center relative">
-            <div className="relative group animate-float">
-              <div className="relative w-[300px] h-[420px] sm:w-[350px] sm:h-[460px] lg:w-[400px] lg:h-[500px] rounded-[36px] overflow-hidden bg-slate-900/40 backdrop-blur-md border-2 border-white/5 transition-all duration-700 hover:border-cyan-500/30 shadow-2xl hover:shadow-cyan-500/20">
+            <div className="relative group animate-drift-rotate">
+              <div className="relative w-[300px] h-[420px] sm:w-[350px] sm:h-[460px] lg:w-[400px] lg:h-[500px] rounded-[36px] overflow-hidden bg-slate-900/40 backdrop-blur-md border-2 border-white/5 transition-all duration-700 hover:border-cyan-500/30 shadow-2xl hover:shadow-cyan-500/20 animate-glow-pulse">
                 {/* FIXED: Using imported bannerImg variable instead of string path */}
                 <img
                   src={bannerImg}
@@ -160,16 +160,37 @@ const Hero: React.FC = () => {
         .animate-fade-in {
           animation: fade-in 0.6s ease-out;
         }
-        @keyframes float {
+        
+        /* New enhanced animation: drift and subtle rotation */
+        @keyframes drift-rotate {
           0%, 100% {
-            transform: translateY(0px);
+            transform: translateY(0px) translateX(0px) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-15px) translateX(8px) rotate(1deg);
           }
           50% {
-            transform: translateY(-20px);
+            transform: translateY(-25px) translateX(0px) rotate(0deg);
+          }
+          75% {
+            transform: translateY(-15px) translateX(-8px) rotate(-1deg);
           }
         }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
+        .animate-drift-rotate {
+          animation: drift-rotate 6s ease-in-out infinite;
+        }
+        
+        /* Glowing pulse effect on the border */
+        @keyframes glow-pulse {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.1), 0 0 40px rgba(6, 182, 212, 0.05);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.2), 0 0 60px rgba(6, 182, 212, 0.1);
+          }
+        }
+        .animate-glow-pulse {
+          animation: glow-pulse 4s ease-in-out infinite;
         }
       `}</style>
     </section>
