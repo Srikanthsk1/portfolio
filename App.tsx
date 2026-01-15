@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import ProjectDetail from './components/ProjectDetail';
 import { PROJECTS, EXPERIENCES } from './constants';
 
+
 const LandingPage: React.FC = () => {
   const [activeTag, setActiveTag] = useState<string>('All');
 
@@ -37,7 +38,6 @@ const LandingPage: React.FC = () => {
       <div className="bg-[#080c1d]">
         <Skills />
       </div>
-
       <div className="section-separator" />
 
       {/* SECTION: CERTIFICATIONS - Deep Space Blue */}

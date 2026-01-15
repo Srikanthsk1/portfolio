@@ -1,47 +1,94 @@
 import React from 'react';
-
+import python from '../src/assets/python.png';
+import sql from '../src/assets/sql.png';
+import ds from '../src/assets/ds.png';
+import Bi from '../src/assets/Bi.png';
+import html from '../src/assets/html_and_css.jpeg';
+import figma from '../src/assets/figma.jpeg';
+import researc from '../src/assets/research.png';
 // Mock certifications data
 const CERTIFICATIONS = [
   {
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop",
-    icon: "☁️",
-    certId: "AWS-12345",
-    date: "Dec 2024",
-    link: "#",
-    verifyLink: "#"
+    title: "python for Data Science",
+    issuer: "360DigiTMG",
+    imageUrl: python,
+    icon: "🐍",
+    certId: "360DTMGIN46174",
+    date: "Jun 23 2025",
+    link: "https://drive.google.com/file/d/1RPaeda-l0gJ8vTgW-G4wcMf-wa9Tkot4/view?usp=sharing",
+    verifyLink: "https://360digitmg.com/aispry-ind-verify"
   },
   {
-    title: "Deep Learning Specialization",
-    issuer: "DeepLearning.AI",
-    imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
-    icon: "🧠",
-    certId: "DL-67890",
-    date: "Nov 2024",
-    link: "#",
-    verifyLink: "#"
+    title: "SQL",
+    issuer: "360DigiTMG",
+    imageUrl: sql,
+    icon: "💾",
+    certId: "360DTMGIN46871",
+    date: "August 20, 2025",
+    link: "https://drive.google.com/file/d/18QtoNIfJsbk_R_CRpOIrvWOn740bUZkA/view?usp=sharing",
+    verifyLink: "https://360digitmg.com/aispry-ind-verify"
   },
   {
-    title: "TensorFlow Developer Certificate",
-    issuer: "Google",
-    imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=300&fit=crop",
-    icon: "🔥",
-    certId: "TF-54321",
-    date: "Oct 2024",
-    link: "#",
-    verifyLink: "#"
-  },
-  {
-    title: "Azure Data Scientist Associate",
-    issuer: "Microsoft",
-    imageUrl: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&h=300&fit=crop",
+    title: "Power BI",
+    issuer: "360DigiTMG",
+    imageUrl: Bi,
     icon: "📊",
-    certId: "AZ-13579",
-    date: "Sep 2024",
-    link: "#",
-    verifyLink: "#"
+    certId: "360DTMGIN46871",
+    date: "September 2, 2025",
+    link: "https://drive.google.com/file/d/1gIKjUyk_-RiG8xPO9hWTm_aRPelz-jal/view?usp=sharing",
+    verifyLink: "https://360digitmg.com/aispry-ind-verify"
+  },
+  {
+    title: "Data Science",
+    issuer: "360DigiTMG",
+    imageUrl: ds,
+    icon: "📊",
+    certId: "360DTMGIN47671",
+    date: "October 4, 2025",
+    link: "https://drive.google.com/file/d/1iekiWByYN8ok1VPnE8-v8soWjc6Y1cAn/view?usp=sharing",
+    verifyLink: "https://360digitmg.com/aispry-ind-verify"
+  },
+  {
+    title: "HTML & CSS",
+    issuer: "Guvi",
+    imageUrl: html,
+    icon: "📊",
+    certId: "3n9123z47g69j51A4m5",
+    date: "September 17 2024",
+    link: "https://www.linkedin.com/posts/srikanth-m1_im-happy-to-share-that-ive-obtained-a-new-activity-7241654624514908160-hAgb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEI20KgBRrj9-b6wac7i0IdfRCi1HbnaP3A",
+    verifyLink: "https://www.guvi.in/certificate?id=n9i23z47g69j51A4m5"
+  },
+  {
+    title: "Figma",
+    issuer: "Udemy",
+    imageUrl: figma,
+    icon: "📊",
+    certId: "UC-c0457d78-59da-4e7-98db-dca3b0a6606c",
+    date: "May 8, 2024",
+    link: "https://drive.google.com/file/d/1iekiWByYN8ok1VPnE8-v8soWjc6Y1cAn/view?usp=sharing",
+    verifyLink: "ude.my/UC-c0457d78-59da-41e7-98db-dca3b0a6606c"
+  },
+  {
+    title: "Ai driven respiratory disease classification",
+    issuer: "Harcourt Butler Technical University ",
+    imageUrl: researc,
+    icon: "📊",
+    certId: "HBTU-RDC-2025-09",
+    date: "Jan 1, 2025",
+    link: "https://drive.google.com/file/d/1nbuNhT_DK8dSHxM1NeVN2MAS82HzA5mT/view?usp=drive_link",
+    verifyLink: ""
+  },
+  {
+    title: "AI driven Sperm Analysis and Grading System",
+    issuer: "360DigiTMG",
+    imageUrl:Bi ,
+    icon: "📊",
+    certId: "360DTMGIN47671",
+    date: "October 4, 2025",
+    link: "https://drive.google.com/file/d/1iekiWByYN8ok1VPnE8-v8soWjc6Y1cAn/view?usp=sharing",
+    verifyLink: "https://360digitmg.com/aispry-ind-verify"
   }
+
 ];
 
 const Certifications: React.FC = () => {
