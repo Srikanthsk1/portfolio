@@ -42,11 +42,11 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-8 h-16 flex items-center justify-between">
 
-        {/* LOGO (SLIGHTLY SMALLER & CENTERED) */}
+        {/* LOGO */}
         <Link
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center fira-code text-sm font-black tracking-tight"
+          className="flex items-center fira-code text-base font-black tracking-tight"
         >
           <span className="text-slate-100">&lt;/. </span>
           <span className="text-cyan-400">S</span>
@@ -63,26 +63,25 @@ const Navbar: React.FC = () => {
 
         {/* DESKTOP MENU */}
         <div className="hidden lg:flex items-center gap-10">
-
           {navItems.map(item => (
             <a
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className="text-sm font-semibold uppercase tracking-widest
+              className="text-base font-semibold uppercase tracking-widest
               text-slate-300 hover:text-cyan-400 transition-colors fira-code"
             >
               {item.name}
             </a>
           ))}
 
-          {/* RESUME BUTTON (SAME HEIGHT AS TEXT) */}
+          {/* RESUME BUTTON */}
           <a
             href="https://drive.google.com/file/d/1pIaUuRzxHJXpA0ySKr_BL3tLnmU_vMGE/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="h-10 px-6 flex items-center justify-center
-            text-sm font-semibold uppercase tracking-widest
+            text-base font-semibold uppercase tracking-widest
             text-cyan-400 border border-cyan-500/40 rounded-lg
             hover:bg-cyan-500 hover:text-slate-950 transition-all"
           >
@@ -90,7 +89,7 @@ const Navbar: React.FC = () => {
           </a>
         </div>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="lg:hidden text-slate-100"
@@ -130,7 +129,7 @@ const Navbar: React.FC = () => {
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className="text-3xl font-black text-slate-100 flex items-center gap-5"
+              className="text-4xl font-black text-slate-100 flex items-center gap-5"
             >
               <span className="text-sm fira-code text-cyan-500/40">
                 0{idx + 1}.
