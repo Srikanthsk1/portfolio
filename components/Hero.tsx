@@ -6,9 +6,15 @@ const Hero: React.FC = () => {
       id="about"
       className="relative min-h-[100vh] flex items-center pt-32 pb-20 lg:pt-40 lg:pb-12 overflow-hidden"
     >
-      {/* Background Effects */}
-      <div className="absolute top-[-10%] left-[-10%] w-[450px] h-[450px] bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[550px] h-[550px] bg-indigo-600/10 rounded-full blur-[130px] pointer-events-none" />
+      {/* Background Circles */}
+      <div
+        className="absolute top-[10%] right-[26%] w-[300px] h-[300px] bg-cyan-600/20 rounded-full blur-[90px] pointer-events-none"
+        style={{ zIndex: 0 }}
+      />
+      <div
+        className="absolute top-[45%] right-[18%] w-[200px] h-[200px] bg-indigo-600/20 rounded-full blur-[80px] pointer-events-none"
+        style={{ zIndex: 0 }}
+      />
 
       <div className="container mx-auto px-8 lg:px-16 relative z-10">
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
