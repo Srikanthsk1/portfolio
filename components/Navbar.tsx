@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -9,27 +9,27 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'About', id: 'about' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'Certifications', id: 'certifications' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'Experience', id: 'experience' },
-    { name: 'Contact', id: 'contact' }
+    { name: "About", id: "about" },
+    { name: "Skills", id: "skills" },
+    { name: "Certifications", id: "certifications" },
+    { name: "Projects", id: "projects" },
+    { name: "Experience", id: "experience" },
+    { name: "Contact", id: "contact" },
   ];
 
   const handleNavClick = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
-    if (location.pathname === '/') {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate('/');
+      navigate("/");
       setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 120);
     }
     setMobileMenuOpen(false);
@@ -38,16 +38,23 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300
-        bg-slate-950/30 backdrop-blur-md border border-slate-500/20 shadow-md
-        ${scrolled ? 'bg-slate-950/50 backdrop-blur-xl border-slate-400/30' : 'bg-transparent border-transparent shadow-none'}`}
+    border border-slate-500/20 shadow-md
+    ${
+      scrolled
+        ? "bg-slate-950/50 border-slate-400/30 shadow-lg"
+        : "bg-slate-950/20 border-slate-500/10 shadow-sm"
+    }`}
+      style={{
+        backdropFilter: scrolled ? "blur(15px)" : "blur(8px)",
+        WebkitBackdropFilter: scrolled ? "blur(15px)" : "blur(8px)",
+      }}
     >
       <div className="container mx-auto px-8 h-16 flex items-center justify-between">
-
         {/* LOGO */}
         <Link
           to="/"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center fira-code text-3xl font-black tracking-tight"  // Increased font size here
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center fira-code text-3xl font-black tracking-tight" // Increased font size here
         >
           <span className="text-slate-100">&lt;/. </span>
           <span className="text-cyan-400">S</span>
@@ -64,7 +71,7 @@ const Navbar: React.FC = () => {
 
         {/* DESKTOP MENU */}
         <div className="hidden lg:flex items-center gap-10">
-          {navItems.map(item => (
+          {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
@@ -95,7 +102,12 @@ const Navbar: React.FC = () => {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="lg:hidden text-slate-100"
         >
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg
+            className="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -113,7 +125,7 @@ const Navbar: React.FC = () => {
       {/* MOBILE MENU */}
       <div
         className={`lg:hidden fixed inset-0 transition-all duration-500
-        ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+        ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       >
         <div
           className="absolute inset-0 bg-slate-950/95 backdrop-blur-xl"
@@ -123,7 +135,7 @@ const Navbar: React.FC = () => {
         <div
           className={`absolute right-0 top-0 h-full w-[85%] glass p-12
           flex flex-col justify-center gap-10 transition-transform duration-500
-          ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
         >
           {navItems.map((item, idx) => (
             <a
