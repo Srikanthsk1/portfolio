@@ -1,0 +1,7 @@
+{
+  "name": "AI & Data Science Portfolio Pro",
+  "description": "A stunning, high-performance portfolio for data scientists and AI developers, featuring glassmorphism, interactive charts, and a built-in Gemini-powered AI assistant.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
