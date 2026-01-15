@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
             <div className="relative group">
               <div className="relative w-[300px] h-[420px] sm:w-[350px] sm:h-[460px] lg:w-[400px] lg:h-[500px] rounded-[36px] overflow-hidden bg-slate-900/40 backdrop-blur-md border-2 border-white/5 transition-all duration-700 hover:border-cyan-500/30 shadow-2xl hover:shadow-cyan-500/20">
                 <img
-                  src="src/assets/bannerImg.png"
+                  src="bannerImg.png"
                   alt="Srikanth Portrait"
                   className="w-full h-full object-cover brightness-[1.05] group-hover:scale-105 transition-all duration-1000 grayscale-[15%] group-hover:grayscale-0"
                   onError={(e) => {
