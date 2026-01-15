@@ -1,4 +1,6 @@
 import React from 'react';
+// CRITICAL: Import the image at the top of the file
+import bannerImg from '../bannerImg.png';
 
 const Hero: React.FC = () => {
   return (
@@ -18,6 +20,7 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-8 lg:px-16 relative z-10">
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
+          {/* Left Content Section */}
           <div className="order-2 lg:order-1 text-center lg:text-left space-y-8">
             <div className="inline-flex items-center gap-3 px-5 py-2 bg-slate-900/40 backdrop-blur-md rounded-full border border-cyan-500/15 animate-fade-in">
               <span className="relative flex h-3 w-3">
@@ -25,7 +28,7 @@ const Hero: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.35em] font-bold text-cyan-400/90">
-                Data Scientist• AI Developer
+                Data Scientist • AI Developer
               </span>
             </div>
 
@@ -50,6 +53,8 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-6 items-center justify-center lg:justify-start pt-4">
               <a
                 href="https://drive.google.com/file/d/1pIaUuRzxHJXpA0ySKr_BL3tLnmU_vMGE/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative px-10 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black rounded-lg transition-all transform hover:scale-[1.05] shadow-xl shadow-cyan-500/20 flex items-center gap-3 overflow-hidden"
               >
                 <span className="relative z-10 uppercase tracking-widest text-[11px]">Download resume</span>
@@ -96,17 +101,21 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
+          {/* Right Image Section */}
           <div className="order-1 lg:order-2 flex justify-center items-center relative">
-            <div className="relative group">
+            <div className="relative group animate-float">
               <div className="relative w-[300px] h-[420px] sm:w-[350px] sm:h-[460px] lg:w-[400px] lg:h-[500px] rounded-[36px] overflow-hidden bg-slate-900/40 backdrop-blur-md border-2 border-white/5 transition-all duration-700 hover:border-cyan-500/30 shadow-2xl hover:shadow-cyan-500/20">
+                {/* FIXED: Using imported bannerImg variable instead of string path */}
                 <img
-                  src="bannerImg.png"
+                  src={bannerImg}
                   alt="Srikanth Portrait"
                   className="w-full h-full object-cover brightness-[1.05] group-hover:scale-105 transition-all duration-1000 grayscale-[15%] group-hover:grayscale-0"
                   onError={(e) => {
+                    console.error('Image failed to load');
                     (e.target as HTMLImageElement).src =
-                      'https://via.placeholder.com/400x500?text=Image+Not+Found';
+                      'https://via.placeholder.com/400x500/1e293b/06b6d4?text=Srikanth+M';
                   }}
+                  onLoad={() => console.log('Image loaded successfully!')}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
 
@@ -137,7 +146,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in {
           from {
             opacity: 0;
@@ -150,6 +159,17 @@ const Hero: React.FC = () => {
         }
         .animate-fade-in {
           animation: fade-in 0.6s ease-out;
+        }
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
         }
       `}</style>
     </section>
