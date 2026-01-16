@@ -93,79 +93,89 @@ const CERTIFICATIONS = [
 
 const Certifications: React.FC = () => {
   return (
-    <section id="certifications" className="py-24 md:py-32 relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-4xl md:text-6xl font-black mb-6 flex items-center gap-6">
-            <span className="font-mono text-cyan-400 text-xl">02.</span>
-            Certifications
+    <section id="certifications" className="py-20 md:py-28 relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-16 relative z-10">
+        {/* SECTION HEADER */}
+        <div className="mb-20 max-w-2xl">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 flex items-center gap-4">
+            <span className="font-mono text-cyan-400 text-2xl">02.</span>
+            <span className="bg-gradient-to-r from-slate-100 to-slate-300 bg-clip-text text-transparent">
+              Certifications
+            </span>
           </h2>
-          <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed">
+          <div className="w-12 h-1 bg-gradient-to-r from-cyan-500 to-transparent mb-6" />
+          <p className="text-slate-400 text-lg leading-relaxed font-light">
             Professional validations and technical achievements that fuel my growth.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* CERTIFICATIONS GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {CERTIFICATIONS.map((cert, idx) => (
             <div
               key={idx}
-              className="bg-slate-900/40 backdrop-blur-md rounded-[28px] border border-white/5 hover:border-cyan-500/60 transition-all duration-500 group overflow-hidden flex flex-col hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)]"
+              className="bg-gradient-to-br from-slate-900/50 to-slate-950/30 backdrop-blur-sm rounded-2xl border border-slate-700/40 hover:border-cyan-500/50 transition-all duration-500 group overflow-hidden flex flex-col hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-1"
             >
-              {/* IMAGE */}
-              <div className="relative h-44 overflow-hidden">
+              {/* IMAGE SECTION */}
+              <div className="relative h-40 overflow-hidden bg-slate-800/50">
                 <img
                   src={cert.imageUrl}
                   alt={cert.title}
-                  className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-90 group-hover:scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-110 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a101f] via-transparent to-transparent" />
-                <div className="absolute top-5 right-5 bg-slate-900/60 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center text-2xl border border-white/10 group-hover:scale-105 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+                <div className="absolute top-4 right-4 bg-slate-950/70 backdrop-blur-sm w-10 h-10 rounded-lg flex items-center justify-center text-xl border border-slate-600/50 group-hover:bg-cyan-500/20 group-hover:border-cyan-500/50 transition-all duration-300">
                   {cert.icon}
                 </div>
               </div>
 
-              {/* CONTENT */}
-              <div className="p-5 flex flex-col gap-4 flex-grow">
-                <div>
-                  <h4 className="text-base md:text-lg font-black text-slate-100 group-hover:text-cyan-400 transition-colors leading-snug mb-2">
+              {/* CONTENT SECTION */}
+              <div className="p-6 flex flex-col gap-4 flex-grow">
+                {/* TITLE & ISSUER */}
+                <div className="space-y-2">
+                  <h3 className="text-sm md:text-base font-bold text-slate-100 group-hover:text-cyan-300 transition-colors line-clamp-2">
                     {cert.title}
-                  </h4>
-                  <p className="text-[10px] text-indigo-400 font-black uppercase tracking-[0.25em]">
+                  </h3>
+                  <p className="text-xs text-cyan-400/80 font-semibold uppercase tracking-wider">
                     {cert.issuer}
                   </p>
                 </div>
 
-                {/* META */}
-                <div className="py-3 border-y border-white/5 space-y-2">
-                  <div className="flex justify-between text-[10px] font-mono">
-                    <span className="text-slate-600 font-bold uppercase">ID</span>
-                    <span className="text-slate-400">{cert.certId}</span>
+                {/* DIVIDER */}
+                <div className="h-px bg-gradient-to-r from-slate-700/20 to-transparent" />
+
+                {/* METADATA */}
+                <div className="space-y-3 text-xs">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-500 font-semibold uppercase tracking-wide">Cert ID</span>
+                    <span className="text-slate-300 font-mono text-[10px] truncate ml-2">{cert.certId}</span>
                   </div>
-                  <div className="flex justify-between text-[10px] font-mono">
-                    <span className="text-slate-600 font-bold uppercase">Date</span>
-                    <span className="text-slate-300">{cert.date}</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-500 font-semibold uppercase tracking-wide">Date</span>
+                    <span className="text-slate-300 font-medium">{cert.date}</span>
                   </div>
                 </div>
 
-                {/* ACTIONS – CENTER ALIGNED */}
-                <div className="mt-auto flex justify-center gap-3 pt-3">
+                {/* ACTION BUTTONS */}
+                <div className="mt-auto pt-4 flex gap-2">
                   <a
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-28 py-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-white transition flex items-center justify-center"
+                    className="flex-1 py-2.5 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-slate-600/50 hover:border-slate-500 text-slate-300 hover:text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center justify-center"
                   >
                     View
                   </a>
-
-                  <a
-                    href={cert.verifyLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-28 py-2.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-slate-950 border border-cyan-500/20 hover:border-cyan-500 text-[10px] font-black uppercase tracking-widest transition flex items-center justify-center"
-                  >
-                    Verify
-                  </a>
+                  {cert.verifyLink && (
+                    <a
+                      href={cert.verifyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-2.5 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 hover:border-cyan-500/60 text-cyan-400 hover:text-cyan-300 text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center justify-center"
+                    >
+                      Verify
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
